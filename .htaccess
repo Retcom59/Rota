@@ -1,0 +1,26 @@
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php56” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php56 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+#force SSL on entire site
+
+RewriteEngine On 
+
+RewriteCond %{HTTPS} !=on
+
+RewriteRule ^/?(.*) https://iturota.com/$1 [R=301,L]
+
+
+Options +FollowSymLinks 
+
+RewriteEngine on 
+
+RewriteCond %{HTTPS_HOST} ^iturota.com [NC] 
+
+RewriteRule ^(.*)$ https://www.iturota.com/$1 [L,R=301]
+
